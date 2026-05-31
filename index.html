@@ -370,7 +370,7 @@ body {
   <div class="settings-panel">
     <div class="settings-header">拼接设置</div>
     <div class="settings-body">
-      <div class="field"><label>输出宽度</label><input type="number" id="outputWidth" value="1080" min="100" max="8000" step="10"></div>
+      <div class="field"><label>输出宽度</label><input type="number" id="outputWidth" value="2160" min="100" max="8000" step="10"></div>
       <div class="field"><label>图片间距</label><input type="number" id="gapSize" value="0" min="0" max="200" step="1"></div>
       <div class="field"><label>间距颜色</label><input type="color" id="gapColor" value="#ffffff"></div>
       <div class="field">
@@ -863,7 +863,7 @@ function updatePreview() {
 
 // ==================== Stitch Engine ====================
 function stitch() {
-  const ow = +$('#outputWidth').value || 1080;
+  const ow = +$('#outputWidth').value || 2160;
   const gap = +$('#gapSize').value || 0;
   const gc = $('#gapColor').value || '#ffffff';
   const al = (document.querySelector('#alignGroup .active') || {}).dataset?.value || 'left';
