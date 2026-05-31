@@ -422,8 +422,8 @@ body {
           </div>
           <div class="field">
             <label>字体大小</label>
-            <input type="range" id="textFontSize" value="32" min="10" max="120" step="1">
-            <span style="font-size:11px;color:var(--accent);" id="fontSizeVal">32px</span>
+            <input type="range" id="textFontSize" value="48" min="10" max="200" step="1">
+            <span style="font-size:11px;color:var(--accent);" id="fontSizeVal">48px</span>
           </div>
           <div class="field">
             <label>文字颜色</label>
@@ -580,8 +580,8 @@ function openTextEditor(imgIdx) {
   $('#modalImgName').textContent = img.file.name;
   $('#modalImage').src = img.dataUrl;
   $('#textContent').value = '';
-  $('#textFontSize').value = 32;
-  $('#fontSizeVal').textContent = '32px';
+  $('#textFontSize').value = 48;
+  $('#fontSizeVal').textContent = '48px';
   $('#textColor').value = '#ffffff';
   $('#textBg').value = 'none';
   buildTextLayers();
@@ -655,7 +655,7 @@ $('#imgContainer').addEventListener('click', function(e) {
     img.texts.push({
       id, text: '输入文字',
       x: parseFloat(xPct), y: parseFloat(yPct),
-      fontSize: 32, color: '#ffffff', bg: 'none'
+      fontSize: 48, color: '#ffffff', bg: 'none'
     });
     editorState.selectedId = id;
     buildTextLayers();
@@ -697,7 +697,7 @@ function onResizeMouseDown(e, id) {
   resizingTextId = id;
   resizeStartX = e.clientX;
   const t = images[editorState.imgIdx].texts.find(tx => tx.id === id);
-  resizeOrigFontSize = t ? t.fontSize : 32;
+  resizeOrigFontSize = t ? t.fontSize : 48;
   renderTextList();
   applyToSelected();
 }
@@ -717,7 +717,7 @@ document.addEventListener('mousemove', (e) => {
   // Text resize
   if (resizingTextId) {
     const deltaX = e.clientX - resizeStartX;
-    const newSize = Math.min(120, Math.max(10, Math.round(resizeOrigFontSize + deltaX * 0.5)));
+    const newSize = Math.min(200, Math.max(10, Math.round(resizeOrigFontSize + deltaX * 0.5)));
     const t = images[editorState.imgIdx].texts.find(tx => tx.id === resizingTextId);
     if (t) {
       t.fontSize = newSize;
