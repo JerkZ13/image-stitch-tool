@@ -900,7 +900,7 @@ function stitch() {
       img.texts.forEach(t => {
         const tx = x + (t.x / 100) * img.sw;
         const ty = y + (t.y / 100) * img.sh;
-        const fs = Math.max(12, Math.round(t.fontSize * img.scaleRatio));
+        const fs = Math.max(12, Math.round(t.fontSize * cw / 2160));
         ctx.save();
         ctx.font = `600 ${fs}px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif`;
         ctx.textAlign = 'center';
